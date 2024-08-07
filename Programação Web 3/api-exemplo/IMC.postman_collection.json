@@ -1,0 +1,55 @@
+{
+	"info": {
+		"_postman_id": "a6e287f6-bb50-4297-b375-4e6dd43e22ac",
+		"name": "IMC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "4342671"
+	},
+	"item": [
+		{
+			"name": "Post - IMC",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"altura\": 1.6,\r\n    \"peso\": 60\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3001/imc"
+			},
+			"response": []
+		},
+		{
+			"name": "Post - Soma",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"altura\": 1.6,\r\n    \"peso\": 60\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3001/imc"
+			},
+			"response": []
+		},
+		{
+			"name": "GET - /",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3001/"
+			},
+			"response": []
+		}
+	]
+}
