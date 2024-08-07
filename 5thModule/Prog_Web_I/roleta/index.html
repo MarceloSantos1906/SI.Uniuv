@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Hello, world!</title>
+</head>
+
+<body>
+  <h1>Roleta</h1>
+  <div style="padding: 10px;">
+    <div style="width: auto; max-width: max-content;">
+      <label for="input_bet">Aposta: </label>
+      <input type="number" class="form-control" aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default" min="1" value="0" id="input_bet">
+    </div>
+    <div class="escolha_radio" style="width: auto; max-width: max-content;">
+      <label for="input_pos">Posição</label>
+      <input type="number" class="form-control" aria-label="Sizing example input"
+             aria-describedby="inputGroup-sizing-default" min="1" value="" id="input_pos">
+      <input type="radio" id="even" name="input_pos" value="par">
+      <label for="even">Par</label>
+      <div>
+        <input type="radio" id="odd" name="input_pos" value="Impar">
+        <label for="odd">Impar</label>
+      </div>
+      <div>
+        <input type="radio" id="red" name="input_pos" value="Vermelho">
+        <label for="red">Vermelho</label>
+      </div>
+      <div>
+        <input type="radio" id="black" name="input_pos" value="Preto">
+        <label for="black">Preto</label>
+      </div>
+      <div>
+        <input type="radio" id="1_coluna" name="input_pos" value="1_coluna">
+        <label for="1_coluna">1ª Coluna</label>
+      </div>
+      <div>
+        <input type="radio" id="2_coluna" name="input_pos" value="2_coluna">
+        <label for="2_coluna">2ª Coluna</label>
+      </div>
+      <div>
+        <input type="radio" id="3_coluna" name="input_pos" value="3_coluna">
+        <label for="3_coluna">3ª Coluna</label>
+      </div>
+      <div>
+        <input type="radio" id="1_to_12" name="input_pos" value="1_to_12">
+        <label for="1_to_12">1 a 12</label>
+      </div>
+      <div>
+        <input type="radio" id="13_to_24" name="input_pos" value="13_to_24">
+        <label for="13_to_24">13 a 24</label>
+      </div>
+      <div>
+        <input type="radio" id="25_to_36" name="input_pos" value="25_to_36">
+        <label for="25_to_36">25 a 35</label>
+      </div>
+      <div>
+        <input type="radio" id="1_to_18" name="input_pos" value="1_to_18">
+        <label for="1_to_18">1 a 18</label>
+      </div>
+      <div>
+        <input type="radio" id="19_to_36" name="input_pos" value="19_to_36">
+        <label for="19_to_36">19 a 36</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="button" style="padding: 10px;">
+    <button type="button" class="btn btn-primary" style="margin-top: 10px; min-width: 20%;"
+      onclick=jogar() id="botao_jogar">Iniciar</button>
+  </div>
+  <div class="escolha-computador" style="padding-left: 10px; padding-right: 10px;">
+    <h1 id="valor_roleta"></h1>
+  </div>
+  <div class="class_resultado">
+    <h1 id="resultado"></h1>
+  </div>
+</body>
+
+<script>
+  function jogar() {
+    document.getElementById("input_bet").disabled = true;
+    const valor_aposta = parseInt(document.getElementById("input_bet").value);
+    let posicao_aposta;
+    let tipo = 0;
+    let apostaValida = true; // Flag to check if the bet is valid
+    const coluna_1 = [1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34];
+    const coluna_2 = [2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35];
+    const coluna_3 = [3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36];
+
+    // Check if a radio button is selected
+    const selectedRadio = document.querySelector("input[name='input_pos']:checked");
+    if (selectedRadio) {
+      posicao_aposta = selectedRadio.value;
+      tipo = 2; // Set the type to column bet
+    } else {
+      // If no radio button is selected, check the input field
+      posicao_aposta = document.getElementById("input_pos").value;
+      tipo = 1; // Set the type to single number bet
+    }
+
+    // Check if posicao_aposta is a valid number
+    if (!isNaN(posicao_aposta) && (posicao_aposta >= 1 && posicao_aposta <= 36)) {
+      tipo = 1; // If it's a number within the valid range, set the type to single number bet
+    } else if (posicao_aposta !== "1_coluna" && posicao_aposta !== "2_coluna" && posicao_aposta !== "3_coluna") {
+      apostaValida = false; // If it's not a valid number or column selection, set the flag to false
+    }
+
+    if (!apostaValida) {
+      alert('Por favor, insira uma aposta válida.');
+      return;
+    }
+
+    console.log(tipo);
+    let inicio = Date.now();
+    let roleta_ = setInterval(function() {
+      let tempo = Date.now() - inicio;
+      if (tempo >= 100) {
+        clearInterval(roleta_);
+        let resultado = parseInt(document.getElementById("valor_roleta").innerText.split(": ")[1]);
+        if (tipo === 2) {
+          let coluna_selecionada;
+          if (posicao_aposta === "1_coluna") {
+            coluna_selecionada = coluna_1;
+          } else if (posicao_aposta === "2_coluna") {
+            coluna_selecionada = coluna_2;
+          } else if (posicao_aposta === "3_coluna") {
+            coluna_selecionada = coluna_3;
+          }
+          if (coluna_selecionada && coluna_selecionada.includes(resultado)) {
+            document.getElementById("resultado").innerText = ("Vitória \nApostou: " + valor_aposta + "\nRecebeu: " + valor_aposta * 3);
+            document.getElementById("botao_jogar").disabled = true;
+          } else {
+            document.getElementById("resultado").innerText = ("Derrota \nApostou: " + valor_aposta);
+          }
+        } else if (tipo === 1 && resultado === parseInt(posicao_aposta)) {
+          document.getElementById("resultado").innerText = ("Vitória \nApostou: " + valor_aposta + "\nRecebeu: " + valor_aposta * 35);
+          document.getElementById("botao_jogar").disabled = true;
+        } else {
+          document.getElementById("resultado").innerText = ("Derrota \nApostou: " + valor_aposta);
+        }
+      } else {
+        roleta();
+      }
+    }, 1);
+  };
+
+  function roleta() {
+    const random = Math.floor(Math.random() * 37);
+    document.getElementById("valor_roleta").innerText=("Roleta: " + random);
+    return random;
+  }
+</script>
+
+
+</html>

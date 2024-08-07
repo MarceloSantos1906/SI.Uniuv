@@ -1,0 +1,14 @@
+.roulette {
+    text-align: center;
+}
+
+.result {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.spin-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}

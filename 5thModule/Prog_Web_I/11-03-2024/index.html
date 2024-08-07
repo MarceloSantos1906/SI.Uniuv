@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <title>Hello, world!</title>
+</head>
+
+<body>
+  <h1>じゃんけんぽん</h1>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <div class="inputs" style="padding: 10px; ">
+    <div class="input-largura" style="width: auto; max-width: max-content;">
+      <span class="input-group-text" id="inputGroup-sizing-default">número de vitória necessárias para alguém
+        vencer</span>
+      <input type="number" class="form-control" aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default" min="1" value="0" id="quantidade_vitorias">
+    </div>
+  </div>
+  <div style="padding: 10px; width: fit-content; border: 2px solid; border-radius: 20px; margin: 10px;">
+    <legend>Selecione uma opção e click em jogar</legend>
+    <div style="width: auto; max-width: max-content;">
+      <input type="radio" id="pedra" value="pedra" name="じゃんけんぽん" checked>
+      <label for="pedra">Pedra</label>
+    </div>
+    <div style="width: auto; max-width: max-content;">
+      <input type="radio" id="papel" value="papel" name="じゃんけんぽん">
+      <label for="papel">Papel</label>
+    </div>
+    <div style="width: auto; max-width: max-content; padding-bottom: 10px;">
+      <input type="radio" id="tesoura" value="tesoura" name="じゃんけんぽん">
+      <label for="tesoura">Tesoura</label>
+    </div>
+  </div>
+  <div class="button" style="padding: 10px;">
+    <button type="button" class="btn btn-primary" style="margin-top: 10px; min-width: 20%;"
+      onclick=jogar() id="botao_jogar">Jogar</button>
+  </div>
+  <div class="escolha-computador" style="padding-left: 10px; padding-right: 10px;">
+    <h2 id="escolha-computador"></h2>
+  </div>
+  <div style="padding: 10px; width: fit-content; border: 2px solid; border-radius: 20px; margin: 10px;">
+    <legend>Vitórias:</legend>
+    <span id="player_wins">Player: 0</span><br>
+    <span id="pc_wins">Computador: 0</span><br>
+    <span id="empates">Empates: 0</span>
+  </div>
+  <div class="class_resultado">
+    <h1 id="resultado"></h1>
+  </div>
+</body>
+<style>
+  .estilo_vitoria{
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 500%;
+    font-weight: bolder;
+    color: green;
+  }
+  .estilo_derrota{
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 500%;
+    font-weight: bolder;
+    color: red;
+  }
+</style>
+<script>
+  var numero_vitorias = [];
+  function jogar() {
+    document.getElementById("quantidade_vitorias").disabled = true;
+    let escolha = document.querySelector("input[name='じゃんけんぽん']:checked").value;
+    let random = Math.floor(Math.random() * 3);
+
+    if (escolha == "pedra" && random == 0) {
+      document.getElementById("escolha-computador").innerText = ("Computador: Pedra");
+      numero_vitorias.push(0);
+    } else if (escolha == "papel" && random == 1) {
+      document.getElementById("escolha-computador").innerText = ("Computador: Papel");
+      numero_vitorias.push(0);
+    } else if (escolha == "tesoura" && random == 2) {
+      document.getElementById("escolha-computador").innerText = ("Computador: Tesoura");
+      numero_vitorias.push(0);
+    } else if (escolha == "tesoura" && random == 0) {
+      document.getElementById("escolha-computador").innerText = ("Computador: Pedra");
+      numero_vitorias.push(1);
+    } else if (escolha == "pedra" && random == 1) {
+      document.getElementById("escolha-computador").innerText = ("Computador: Papel");
+      numero_vitorias.push(1);
+    } else if (escolha == "papel" && random == 2) {
+      document.getElementById("escolha-computador").innerText = ("Computador: Tesoura");
+      numero_vitorias.push(1);
+    } else if (escolha == "papel" && random == 0) {
+      document.getElementById("escolha-computador").innerText = ("Computador: Pedra");
+      numero_vitorias.push(2);
+    } else if (escolha == "tesoura" && random == 1) {
+      document.getElementById("escolha-computador").innerText = ("Computador: Papel");
+      numero_vitorias.push(2);
+    } else if (escolha == "pedra" && random == 2) {
+      document.getElementById("escolha-computador").innerText = ("Computador: Tesoura");
+      numero_vitorias.push(2);
+    };
+
+    const empates = numero_vitorias.filter(arr => {
+      if (arr == 0) {
+        return true;
+      }
+      return false;
+    }).length;
+
+    const vitorias_computador = numero_vitorias.filter(arr => {
+      if (arr == 1) {
+        return true;
+      }
+      return false;
+    }).length;
+
+    const vitorias_player = numero_vitorias.filter(arr => {
+      if (arr == 2) {
+        return true;
+      }
+      return false;
+    }).length;
+
+    document.getElementById("player_wins").innerText = ("Player: " + vitorias_player);
+    document.getElementById("pc_wins").innerText = ("Computador: " + vitorias_computador);
+    document.getElementById("empates").innerText = ("Empates: " + empates);
+
+    if (vitorias_computador == document.getElementById("quantidade_vitorias").value) {
+      document.getElementById("resultado").innerText = "Vitória do Computador";
+      let classe = document.getElementById("resultado");
+      classe.classList.add("estilo_derrota");
+      document.getElementById("botao_jogar").disabled = true;
+    } else if (vitorias_player == document.getElementById("quantidade_vitorias").value) {
+      document.getElementById("resultado").innerText = "Vitória";
+      let classe = document.getElementById("resultado");
+      classe.classList.add("estilo_vitoria");
+      document.getElementById("botao_jogar").disabled = true;
+    }
+  };
+</script>
+
+</html>

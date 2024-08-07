@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <title>Hello, world!</title>
+</head>
+
+<body style="text-align: -webkit-center;">
+
+  <label for="dropdown-tipo">Escolha um tipo de calculo:</label>
+  <select id="dropdown-tipo">
+    <option value="vazio"></option>
+    <option value="perimetro">Perimetro</option>
+    <option value="area">Area</option>
+  </select>
+
+  <!-- Example single danger button -->
+  <!-- 
+  <div class="btn-group">
+    <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdown-tipo" onclick="get_tipo()">
+      Selecione o Tipo de Calculo
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Perimetro</a>
+      <a class="dropdown-item" href="#">Area</a>
+    </div>
+  </div>
+  -->
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <div class="inputs">
+    <div class="input-largura" style="width: auto; max-width: max-content;">
+      <span class="input-group-text" id="inputGroup-sizing-default">Lado 1</span>
+      <input type="number" class="form-control" aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default" min="0.01" value="0" id="lado_1">
+    </div>
+  </div>
+  <div class="input-altura" style="width: auto; max-width: max-content;">
+    <span class="input-group-text" id="inputGroup-sizing-default">Lado 2</span>
+    <input type="number" class="form-control" aria-label="Sizing example input"
+      aria-describedby="inputGroup-sizing-default" min="0.01" value="0" id="lado_2">
+  </div>
+  <div class="resultado">
+    <p id="resultado"></p>
+  </div>
+  <div class="button">
+    <button type="button" class="btn btn-primary" style="margin-top: 10px; min-width: 20%;"
+      onclick=calculos()>Calcular</button>
+  </div>
+</body>
+<script>
+
+  function calculos() {
+    tipo_calculo = document.getElementById("dropdown-tipo").value;
+    if (tipo_calculo == "vazio") {
+      alert("você não selecionou um tipo de calculo");
+    } else if (tipo_calculo == "perimetro") {
+      let lado_1 = parseFloat(document.getElementById("lado_1").value);
+      let lado_2 = parseFloat(document.getElementById("lado_2").value);
+      if (isNaN(lado_1) || isNaN(lado_2) || !lado_1 || !lado_2) {
+        alert("campos não podem ser vazios ou 0");
+        return;
+      }
+      let perimetro = (lado_1 + lado_2)*2;
+      document.getElementById("resultado").innerText = ("Perimetro = " + perimetro);
+    } else if (tipo_calculo == "area") {
+      let lado_1 = parseFloat(document.getElementById("lado_1").value);
+      let lado_2 = parseFloat(document.getElementById("lado_2").value);
+      if (isNaN(lado_1) || isNaN(lado_2) || !!lado_1 || !! lado_2) {
+        alert("campos não podem ser vazios ou 0");
+        return;
+      }
+      let area = lado_1 * lado_2;
+      document.getElementById("resultado").innerText = ("Area = " + area);
+    }
+  }
+</script>
+
+</html>
