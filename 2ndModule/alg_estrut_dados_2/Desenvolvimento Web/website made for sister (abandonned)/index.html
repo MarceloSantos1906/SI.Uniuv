@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!--
+        Desenvolvido por Marcelo dos Santos Junior
+        Disciplina: Desenvolvimento Web.
+    -->
+    <div class="bg-image"></div>
+    <div class='main'>
+        <div class="logo">
+            <img src="img/logo.png">
+        </div>
+        <div class="inf">
+            <h1>Estudio de Pilates
+                <br>
+                JB Fisio
+            </h1>
+        </div>
+        <div class="nome">
+            <h2>Jeniffer Budka dos Santos
+                <br>
+                - Fisioterapeuta -
+            </h2>
+        </div>
+        <div class="social">
+            <a href="https://api.whatsapp.com/send/?phone=5542984261635&text=Ola Jeniffer" target="_blank">
+                <img src="img/whatsapp.png"></a>
+            <a href="tel:+5542984261635" target="_blank">
+                <img src="img/call.png"></a>
+            <a href="https://www.instagram.com/jbfisio_" target="_blank">
+                <img src="img/insta.png"></a>
+            <a href="https://www.facebook.com/jenifferbudka" target="_blank">
+                <img src="img/fb.png"></a>
+            <a href="https://goo.gl/maps/zo3ouLrjWaoeUjuW7?coh=178573&entry=tt" target="_blank">
+                <img src="img/map.png"></a>
+            <a href="mailto:jenifferbudkafisio@gmail.com" target="_blank">
+                <img src="img/e-mail.png"></a>
+        </div>
+    </div>
+
+    <div class="agendar">
+        <h3>Atendimento Presencial e Online</h3>
+        <br>
+
+        <!-- Slideshow container -->
+        <div class="slideshow-container">
+
+            <!-- Full-width images with number and caption text -->
+            <div class="mySlides fade">
+                <img src="img/auriculo-cropped.png" style="width:100%">
+                <div class="text">Auriculoterapia</div>
+            </div>
+
+            <div class="mySlides fade">
+                <img src="img/pilates-cropped.png" style="width:100%">
+                <div class="text">Pilates</div>
+            </div>
+
+            <div class="mySlides fade">
+                <img src="img/quiro-cropped.png" style="width:100%">
+                <div class="text">Quiropraxia</div>
+            </div>
+
+            <!-- Next and previous buttons -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <br>
+        <script src="JS/Script.js"></script>
+
+        <!-- The dots/circles -->
+        <div class="dot-container">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+            <h4>Agende Seu Horario</h4>
+    </div>
+
+    <div class="stuff">
+        <div class="auriculo">
+            <div class="auriculo-img">
+                <img src="img/auriculo.png">
+            </div>
+            <div class="auriculo-txt">
+                AURICULOTERAPIA
+            </div>
+            <div class="auriculo-inf">
+                A auriculoterapia é uma terapia natural que consiste na estimulação de pontos nas orelhas, sendo por
+                isso muito semelhante à acupuntura. Segundo a auriculoterapia, o corpo humano pode ser representado na
+                orelha, no formato de um feto, e, por isso, cada ponto se refere a um órgão específico.
+            </div>
+            <div class="auriculo-mais-inf">
+                <input onclick="toggleMoreInfoAuriculo()" type="button" id="more_info_auriculo"
+                    value="MAIS INFORMAÇÕES"></input>
+            </div>
+            <div class="auriculo-mais-info">
+                <p>Mais informações sobre a auriculoterapia...</p>
+            </div>
+        </div>
+        <div class="pilates">
+            <div class="pilates-img">
+                <img src="img/pilates.png">
+            </div>
+            <div class="pilates-txt">
+                PILATES
+            </div>
+            <div class="pilates-inf">
+                <p>Pilates é um conjunto de exercícios que são realizados no solo ou em equipamentos exclusivos, que visa o total e completo controle e conexão entre corpo e mente, devolvendo e restaurando a saúde de indivíduos em condições patológicas, assim como promovendo um aumento da qualidade de vida para pessoas saudáveis.</p>
+            </div>
+            <div class="pilates-mais-inf">
+                <input onclick="toggleMoreInfoPilates()" type="button" id="more_info_pilates"
+                    value="MAIS INFORMAÇÕES"></input>
+            </div>
+            <div class="pilates-mais-info">
+                <p>Melhora da postura<br>
+                A consciência corporal obtida com o pilates e o foco nos músculos do centro do corpo (conhecidos como core) fazem com que as curvas naturais da coluna sejam respeitadas, o que melhora a postura. Com isso, o exercício pode reduzir dores nas costas.</p>
+                <p>Aumento do tônus muscular<br>
+                Os exercícios do pilates trabalham com a contração e força dos músculos, além de sua flexibilidade. Com isso, as fibras musculares são rompidas e reconstruídas, possibilitando a troca de massa gorda por muscular e um melhor contorno corporal, com redução de medidas.</p>
+                <p>Maior mobilidade articular<br>
+                Como os exercícios trabalham o corpo de forma global, as articulações também são estimuladas, o que torna o corpo mais móvel e facilita os movimentos do dia a dia.</p>
+                <p>Alívio de tensões<br>
+                    Por focar na respiração e na concentração na hora de executar um movimento, o pilates pode ajudar na redução do estresse. Esse benefício é incrementado pelo ambiente em que o exercício é realizado: normalmente salas tranquilas e com som ambiente agradável e calmo.</p>
+                <p>Evolução da marcha e corrida<br>
+                    Como movimentos globais são estimulados durante o pilates, isso faz com que movimentos comuns, como a caminhada, se tornem mais simples e melhor executados. Além disso, por meio da reeducação da respiração e da concentração adquiridas no método, correr pode se tornar uma atividade mais prazerosa e com resultados mais rápidos. A consciência corporal desenvolvida no pilates auxilia o equilíbrio do corredor e o alinhamento do corpo.</p>
+                <p>Incremento da flexibilidade<br>
+                    Os exercícios voltados para este benefício são aqueles que enfatizam o alongamento global do corpo. Trabalhando a extensão de músculos e articulações, percebemos mudanças positivas em atividades como amarrar os sapatos e vestir as calças, por exemplo.</p>
+            </div>
+        </div>
+        <div class="quiro">
+            <div class="quiro-img">
+                <img src="img/quiro.png">
+            </div>
+            <div class="quiro-txt">
+                QUIROPRAXIA
+            </div>
+            <div class="quiro-inf">
+                <p>As abordagens da Quiropraxia, ao realinharem a coluna vertebral e promoverem manobras nas articulações, aliviam a tensão muscular e a pressão sanguínea no local. Os resultados trazem alívio da dor e resgate da mobilidade e normalidade dos movimentos pelo paciente.</p>
+                <p>Mas, não se trata apenas de alívio na dor. Veja a seguir os principais benefícios alcançados com as sessões de Quiropraxia.</p>
+            </div>
+            <div class="quiro-mais-inf">
+                <input onclick="toggleMoreInfoQuiro()" type="button" id="more_info_quiro"
+                    value="MAIS INFORMAÇÕES"></input>
+            </div>
+            <div class="quiro-mais-info">
+                <p>Alívio da dor<br>
+                    Diferentes dores podem estar relacionadas às condições da coluna vertebral, especialmente em situações de ergonomia deficitária. Suas causas podem e devem ser tratadas. As abordagens quiropráticas são importantes aliadas na construção de qualidade de vida, promovendo o alívio da dor, em especial àquelas associadas à coluna.</p>
+                <p>Melhora no desempenho<br>
+                    Além de ser estressante, o mal-estar provocado por dores e incômodos, sobretudo aqueles com origens nas posturas, costuma ser um grande redutor do desempenho profissional. O tratamento proporcionado pela Quiropraxia, e a sensação de bem-estar que ela promove, resulta em melhoria nos resultados do trabalho.</p>
+                <p>Diminuição do uso de medicamentos<br>
+                    Com o alívio da dor, o consumo de medicamentos é reduzido consideravelmente. Além dessa consequência do tratamento quiroprático, existe também uma melhora acentuada na autoestima do paciente, que se vê livre da dependência anterior do consumo de remédios para dor.</p>
+                <p>Resultados rápidos<br>
+                    Embora alguns tratamentos sejam concluídos com mais tempo de prática, a Quiropraxia ganha adeptos especialmente pelas respostas rápidas que ela oferece. As sessões empregadas não são demoradas e o alívio da dor chega quase instantaneamente, atendendo às necessidades de casos urgentes.</p>
+                <p>Melhoria na saúde mental<br>
+                    O realinhamento da coluna vertebral pode trazer benefícios para a saúde mental. Além disso, é importante levar em conta que a convivência com a dor é um poderoso agente estressor, o que pode dificultar o bem-estar no cotidiano e desenvolver o sentimento de ansiedade e até quadros depressivos.</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="socials">
+            <a href="https://api.whatsapp.com/send/?phone=5542984261635&text=Ola Jeniffer" target="_blank">
+                <img src="img/whatsapp.png"><span>+55(42) 984 261 635</span></a>
+            <br>
+            <a href="tel:+5542984261635" target="_blank">
+                <img src="img/call.png"><span>+55 (42) 984 261 635</span></a>
+            <br>
+            <a href="https://www.instagram.com/jbfisio_" target="_blank">
+                <img src="img/insta.png"><span>jbfisio_</span></a>
+            <br>
+            <a href="https://www.facebook.com/jenifferbudka" target="_blank">
+                <img src="img/fb.png"><span>JB fisio</span></a>
+            <br>
+            <a href="mailto:jenifferbudkafisio@gmail.com" target="_blank">
+                <img src="img/e-mail.png"><span>jenifferbudkafisio@gmail.com</span></a>
+        </div>
+        <div class="map">
+            <a href="https://goo.gl/maps/zo3ouLrjWaoeUjuW7?coh=178573&entry=tt" target="_blank">
+                <img src="img/map.png"><span>R. Wilson Alves, 901 - União da Vitória - PR</span></a>
+            <br>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d251.06743330274566!2d-51.054661789084534!3d-26.23536312966949!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94e68bb058586667%3A0x857f549ca0e60b71!2sJB%20Fisioterapia%20e%20Est%C3%A9tica!5e0!3m2!1sen!2sbr!4v1684548852264!5m2!1sen!2sbr"
+                height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="logo">
+            <img src="img/logo.png">
+        </div>
+        <div class="contato-contrato-crefito">
+            <a href="http://127.0.0.1:3000/i:/My Drive/pilates/site/code/html/contrato.html">Contrato</a>
+            <br>
+            Crefito 260179-f
+        </div>
+        <div class="horarios">
+            Funcionamento
+            <br>
+            Seg. 08:00 - 20:00
+            <br>
+            Ter. 08:00 - 20:00
+            <br>
+            Qua. 08:00 - 20:00
+            <br>
+            Qui. 08:00 - 20:00
+            <br>
+            Sex. 08:00 - 20:00
+            <br>
+            Sab. Fechado
+            <br>
+            Dom. Fechado
+        </div>
+    </div>
+</body>
+
+</html>
