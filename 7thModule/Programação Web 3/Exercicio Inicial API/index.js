@@ -4,9 +4,16 @@ const port = 3000;
 
 app.use(express.json());
 
+
+//  GETS    //
+
+//Hello World
 app.get('/', ( request, response) =>{
-    response.send('Invalid path')
+    //username = require("os").userInfo().username;
+    response.send("Hello World");
 })
+
+//  POSTS   //
 
 //average
 app.post('/average', (request, response) => {
