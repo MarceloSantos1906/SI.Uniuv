@@ -28,13 +28,11 @@ export async function registerBook(app: FastifyInstance) {
 				publisher,
 				publish_date,
 				genres: {
-					createMany: {
-						data: [{
-							
-						}]
-					}
+					connect: genres.map( Id => ({ Id })),
 				},
-				authors: ""
+				authors: {
+					connect: authors.map( Id => ({ Id })),
+				},
 			},
 			})
 		return { bookId: book.booksId }

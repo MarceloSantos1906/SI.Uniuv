@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
     provider = "prisma-client-js"
 }
@@ -11,7 +8,7 @@ datasource db {
 }
 
 model Books {
-    booksId       String    @id @default(uuid())
+    booksId       Int       @id @default(autoincrement())
     name          String
     publisher     String
     publish_date  DateTime
@@ -23,7 +20,7 @@ model Books {
 }
 
 model Genres {
-    genreId      String   @id @default(uuid())
+    genreId      Int      @id @default(autoincrement())
     genre        String
     registerDate DateTime @default(now())
     books        Books[]
@@ -32,7 +29,7 @@ model Genres {
 }
 
 model Authors {
-    authorId     String   @id @default(uuid())
+    authorId     Int      @id @default(autoincrement())
     name         String
     registerDate DateTime @default(now())
     books        Books[]
