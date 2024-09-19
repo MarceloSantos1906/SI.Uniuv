@@ -17,6 +17,7 @@
     "typescript": "^5.5.4"
   },
   "dependencies": {
+    "exercicio-3": "file:",
     "express": "^4.19.2"
   }
 }

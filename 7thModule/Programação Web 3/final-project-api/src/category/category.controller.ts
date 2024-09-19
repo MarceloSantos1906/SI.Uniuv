@@ -1,10 +1,18 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Get, Post, Body } from '@nestjs/common';
+import { CategoryService } from './category.service';
+import { CreateCategoryDto } from './dto/create-category.dto';
 
-@Controller('category')
-export class CategoryController {}
+@Controller('categories')
+export class CategoryController {
+  constructor(private readonly categoryService: CategoryService) {}
 
-@UseGuards(AuthGuard('jwt'))
-@Get()
-async findAll() {
-  return this.productService.findAll();
+  @Post()
+  async register(@Body() createCategoryDto: CreateCategoryDto) {
+    return this.categoryService.createCategory(createCategoryDto);
+  }
+
+  @Get()
+  async findAll() {
+    return this.categoryService.findAll();
+  }
 }
