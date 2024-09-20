@@ -6,9 +6,9 @@
 *.class
 dist/
 build/
-.env
+#.env
 *.tsbuildinfo
-.env.* 
+#.env.* 
 *.log
 *.ctxt
 .mtj.tmp/
@@ -68,7 +68,7 @@ __pycache__/
 *.py[cod]
 *.pyo
 .python-version
-.env/
+#.env/
 pip-log.txt
 .pytest_cache/
 *.egg-info/
