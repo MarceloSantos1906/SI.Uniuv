@@ -101,6 +101,15 @@ class App:
     def on_close_second_window(self, window):
         window.destroy()
         self.root.deiconify()
+        screen_width = root.winfo_screenwidth()
+        screen_height = root.winfo_screenheight()
+        root.configure(width=screen_width, height=screen_height)
+
+        if platform.system() == "Windows":
+            root.state("zoomed")
+        elif platform.system() == "Linux":
+            root.attributes("-zoomed", True)
+
 
     def rgb_cluster(self):
         self.root.withdraw()
@@ -1784,7 +1793,6 @@ class ConvolutionalNeuralNetworkMultipleCharApp:
 
         self.result.configure(text=character_name)
 
-
     def save_model(self):
         path = filedialog.asksaveasfilename(
             defaultextension=".keras",
@@ -1830,7 +1838,7 @@ class ConvolutionalNeuralNetworkMultipleCharApp:
             return
 
         json_path = f"{os.path.dirname(path)}/metadata.json"
-        
+
         try:
             self.rede_neural = tf.keras.models.load_model(path)
 
@@ -1849,7 +1857,8 @@ class ConvolutionalNeuralNetworkMultipleCharApp:
                     else:
                         break
 
-                for widget in self.main_frame.winfo_children():
+                for widget in self.characters_frame.winfo_children():
+                    continue
                     widget.destroy()
 
                 self.char_pictures_path = {}
