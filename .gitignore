@@ -68,6 +68,8 @@ __pycache__/
 *.py[cod]
 *.pyo
 .python-version
+tset.py
+*.pkl
 #.env/
 pip-log.txt
 .pytest_cache/
