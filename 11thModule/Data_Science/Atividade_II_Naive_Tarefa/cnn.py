@@ -1,10 +1,8 @@
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint, TensorBoard
-from yellowbrick.classifier import ConfusionMatrix
 from tensorflow.keras.utils import to_categorical
 from sklearn.preprocessing import LabelEncoder
 from tensorflow.keras import layers, models
 from sklearn.metrics import accuracy_score
-import matplotlib.pyplot as plt
 import tensorflow as tf
 import numpy as np
 import datetime
@@ -102,30 +100,11 @@ class CNN:
         test_loss, test_acc = self.model.evaluate(x_test, y_test_cat)
         return test_loss, test_acc
 
-    def predict(self, x):
-        predictions = self.model.predict(x)
-        return np.argmax(predictions, axis=1)
-
     def save_model(self, file_path):
         self.model.save("./cnn/" + file_path)
 
     def load_model(self, file_path):
         self.model = models.load_model(file_path)
-
-    def plot_history(self, history, file_name):
-        plt.figure(figsize=(12, 4))
-
-        plt.subplot(1, 2, 1)
-        plt.plot(history.history["accuracy"], label="Training Accuracy")
-        plt.plot(history.history["val_accuracy"], label="Validation Accuracy")
-        plt.title("Accuracy over epochs")
-        plt.savefig(f"{file_name}_accuracy.png")
-
-    def plot_confusion_matrix(self, y_true, y_pred, file_name):
-        cm = ConfusionMatrix(self.model)
-        cm.fit(y_true, y_pred)
-        cm.score(y_true, y_pred)
-        cm.show(outpath=f"{file_name}_confusion_matrix.png")
 
 
 directory = "./pkl/"
